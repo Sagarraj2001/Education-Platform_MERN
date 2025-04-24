@@ -18,7 +18,7 @@ import {
     Download as DownloadIcon, // Removed unused People icon
 } from '@mui/icons-material';
 
-const API_URL = "http://localhost:5000"; // Base API URL
+const API_URL = "https://education-platform-mern.onrender.com"; // Base API URL
 
 const CourseManagement = () => {
     const navigate=useNavigate();

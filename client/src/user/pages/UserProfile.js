@@ -13,7 +13,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/verify", { withCredentials: true })
+      .get("https://education-platform-mern.onrender.com/api/verify", { withCredentials: true })
       .then(res => {
         if (!res.data.login) {
           navigate("/login");
@@ -28,7 +28,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/getProfileData", {
+        const response = await axios.get("https://education-platform-mern.onrender.com/api/getProfileData", {
           withCredentials: true,
         });
         const { username, email, number } = response.data;
