@@ -15,7 +15,7 @@ const path = require('path');
 const app=express();
 
 app.use(cors({
-    origin:["http://localhost:3000"],
+    origin:"https://education-platform-mern.vercel.app/",
     methods:["PUT","POST","GET","DELETE"],
     credentials:true
 }));
