@@ -32,6 +32,11 @@ dotenv.config();
 
 const port=process.env.PORT;
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Education Platform API');
+});
+
+
 app.use("/api",AuthRoute);
 app.use("/api",AdminCourse);
 app.use("/api",DashboardRoute);
