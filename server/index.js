@@ -15,7 +15,7 @@ const path = require('path');
 const app=express();
 
 app.use(cors({
-    origin:"https://education-platform-mern.vercel.app/",
+    origin:"https://education-platform-mern.vercel.app",
     methods:["PUT","POST","GET","DELETE"],
     credentials:true
 }));
@@ -35,6 +35,11 @@ const port=process.env.PORT;
 app.get('/', (req, res) => {
   res.send('Welcome to the Education Platform API');
 });
+
+app.use((req, res, next) => {
+  res.status(404).send('Route not found');
+});
+
 
 
 app.use("/api",AuthRoute);
