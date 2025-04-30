@@ -36,9 +36,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Education Platform API');
 });
 
-app.use((req, res, next) => {
-  res.status(404).send('Route not found');
-});
+
 
 
 
@@ -49,6 +47,11 @@ app.use("/api",UserRoutes);
 app.use("/api",BatchRoute);
 app.use("/api",UserRoute);
 app.use("/api",CourseRoute);
+
+
+app.use((req, res, next) => {
+  res.status(404).send('Route not found');
+});
 
 app.listen(port,()=>{
     console.log(`app is running at port ${port}`);
