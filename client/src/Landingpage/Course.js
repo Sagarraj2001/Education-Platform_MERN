@@ -13,7 +13,7 @@ const Course = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/showCourse"); 
+        const res = await axios.get("https://education-platform-mern.onrender.com/api/showCourse"); 
         setCourses(res.data);
         setLoading(false);
       } catch (err) {
