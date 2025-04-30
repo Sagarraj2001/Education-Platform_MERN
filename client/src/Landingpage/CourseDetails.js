@@ -51,7 +51,7 @@ const CourseDetails = ({ role }) => {
   // Auth verification
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/verify", { withCredentials: true })
+      .get("https://education-platform-mern.onrender.com/api/verify", { withCredentials: true })
       .then(res => {
         if (!res.data.login) {
           navigate("/login");
@@ -66,11 +66,11 @@ const CourseDetails = ({ role }) => {
   // Fetch course info and check enrollment
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/course/${title}`)
+      .get(`https://education-platform-mern.onrender.com/api/course/${title}`)
       .then(res => {
         setCourseInfo(res.data);
 
-        axios.get(`http://localhost:5000/api/enrollment-status/${res.data._id}`, {
+        axios.get(`https://education-platform-mern.onrender.com/api/enrollment-status/${res.data._id}`, {
           withCredentials: true
         })
           .then(response => {
@@ -81,26 +81,7 @@ const CourseDetails = ({ role }) => {
       .catch(err => console.error("Failed to fetch course:", err));
   }, [title]);
 
-  // const handleEnroll = () => {
-  //   if (!courseInfo || !courseInfo._id) return;
-
-  //   setLoadingEnroll(true);
-
-  //   axios.post("http://localhost:5000/api/enroll", {
-  //     courseId: courseInfo._id
-  //   }, { withCredentials: true })
-  //     .then(res => {
-  //       alert(res.data.message);
-  //       setIsEnrolled(true);
-  //     })
-  //     .catch(err => {
-  //       console.error("Enrollment error:", err);
-  //       alert(err.response?.data?.message || "Enrollment failed");
-  //     })
-  //     .finally(() => {
-  //       setLoadingEnroll(false);
-  //     });
-  // };
+  
 
 
   const handleEnroll = () => {
@@ -108,7 +89,7 @@ const CourseDetails = ({ role }) => {
   
     setLoadingEnroll(true);
   
-    axios.post("http://localhost:5000/api/enroll", {
+    axios.post("https://education-platform-mern.onrender.com/api/enroll", {
       courseId: courseInfo._id
     }, { withCredentials: true })
       .then(res => {
@@ -138,7 +119,7 @@ const CourseDetails = ({ role }) => {
           <div className="row align-items-center">
             <div className="col-lg-5 text-center">
               <img
-                src={`http://localhost:5000/uploads/course_images/${courseInfo.image}`}
+                src={`https://education-platform-mern.onrender.com/uploads/course_images/${courseInfo.image}`}
                 alt="Course Illustration"
                 className="img-fluid w-100"
               />
